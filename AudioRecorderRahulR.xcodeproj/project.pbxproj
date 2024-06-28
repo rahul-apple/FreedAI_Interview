@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9580A60F2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A60E2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift */; };
-		9580A6112C2EC3B5006EB296 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6102C2EC3B5006EB296 /* ContentView.swift */; };
+		9580A6112C2EC3B5006EB296 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6102C2EC3B5006EB296 /* RecordingView.swift */; };
 		9580A6132C2EC3B6006EB296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9580A6122C2EC3B6006EB296 /* Assets.xcassets */; };
 		9580A6162C2EC3B6006EB296 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9580A6152C2EC3B6006EB296 /* Preview Assets.xcassets */; };
 		9580A6202C2EC3B6006EB296 /* AudioRecorderRahulRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A61F2C2EC3B6006EB296 /* AudioRecorderRahulRTests.swift */; };
 		9580A62A2C2EC3B6006EB296 /* AudioRecorderRahulRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6292C2EC3B6006EB296 /* AudioRecorderRahulRUITests.swift */; };
 		9580A62C2C2EC3B6006EB296 /* AudioRecorderRahulRUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A62B2C2EC3B6006EB296 /* AudioRecorderRahulRUITestsLaunchTests.swift */; };
+		9580A63A2C2EC6E0006EB296 /* AudioRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6392C2EC6E0006EB296 /* AudioRecording.swift */; };
+		9580A6402C2EC77D006EB296 /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A63F2C2EC77D006EB296 /* RecordingViewModel.swift */; };
+		9580A6432C2EC924006EB296 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6422C2EC924006EB296 /* Constants.swift */; };
+		9580A6462C2ED47F006EB296 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6452C2ED47F006EB296 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		9580A60B2C2EC3B5006EB296 /* AudioRecorderRahulR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorderRahulR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9580A60E2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderRahulRApp.swift; sourceTree = "<group>"; };
-		9580A6102C2EC3B5006EB296 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9580A6102C2EC3B5006EB296 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		9580A6122C2EC3B6006EB296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9580A6152C2EC3B6006EB296 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9580A61B2C2EC3B6006EB296 /* AudioRecorderRahulRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderRahulRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,11 @@
 		9580A6252C2EC3B6006EB296 /* AudioRecorderRahulRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderRahulRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9580A6292C2EC3B6006EB296 /* AudioRecorderRahulRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderRahulRUITests.swift; sourceTree = "<group>"; };
 		9580A62B2C2EC3B6006EB296 /* AudioRecorderRahulRUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderRahulRUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9580A6392C2EC6E0006EB296 /* AudioRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecording.swift; sourceTree = "<group>"; };
+		9580A63F2C2EC77D006EB296 /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
+		9580A6422C2EC924006EB296 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9580A6442C2ECDD2006EB296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9580A6452C2ED47F006EB296 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +103,13 @@
 		9580A60D2C2EC3B5006EB296 /* AudioRecorderRahulR */ = {
 			isa = PBXGroup;
 			children = (
-				9580A60E2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift */,
-				9580A6102C2EC3B5006EB296 /* ContentView.swift */,
-				9580A6122C2EC3B6006EB296 /* Assets.xcassets */,
+				9580A6442C2ECDD2006EB296 /* Info.plist */,
+				9580A6412C2EC7AE006EB296 /* App */,
+				9580A6382C2EC6C7006EB296 /* Models */,
+				9580A63B2C2EC6EF006EB296 /* ViewModels */,
+				9580A63C2C2EC6FD006EB296 /* Views */,
+				9580A63D2C2EC70E006EB296 /* Resources */,
+				9580A63E2C2EC71A006EB296 /* Utilities */,
 				9580A6142C2EC3B6006EB296 /* Preview Content */,
 			);
 			path = AudioRecorderRahulR;
@@ -125,6 +138,55 @@
 				9580A62B2C2EC3B6006EB296 /* AudioRecorderRahulRUITestsLaunchTests.swift */,
 			);
 			path = AudioRecorderRahulRUITests;
+			sourceTree = "<group>";
+		};
+		9580A6382C2EC6C7006EB296 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9580A6392C2EC6E0006EB296 /* AudioRecording.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9580A63B2C2EC6EF006EB296 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9580A63F2C2EC77D006EB296 /* RecordingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9580A63C2C2EC6FD006EB296 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9580A6102C2EC3B5006EB296 /* RecordingView.swift */,
+				9580A6452C2ED47F006EB296 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9580A63D2C2EC70E006EB296 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9580A6122C2EC3B6006EB296 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9580A63E2C2EC71A006EB296 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9580A6422C2EC924006EB296 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9580A6412C2EC7AE006EB296 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9580A60E2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9580A6112C2EC3B5006EB296 /* ContentView.swift in Sources */,
+				9580A6432C2EC924006EB296 /* Constants.swift in Sources */,
+				9580A6402C2EC77D006EB296 /* RecordingViewModel.swift in Sources */,
+				9580A6462C2ED47F006EB296 /* ContentView.swift in Sources */,
+				9580A63A2C2EC6E0006EB296 /* AudioRecording.swift in Sources */,
+				9580A6112C2EC3B5006EB296 /* RecordingView.swift in Sources */,
 				9580A60F2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,9 +488,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioRecorderRahulR/Preview Content\"";
-				DEVELOPMENT_TEAM = W8VDFQDAT3;
+				DEVELOPMENT_TEAM = K939663MYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AudioRecorderRahulR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,7 +502,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idev.AudioRecorderRahulR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idev.audio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -451,9 +518,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioRecorderRahulR/Preview Content\"";
-				DEVELOPMENT_TEAM = W8VDFQDAT3;
+				DEVELOPMENT_TEAM = K939663MYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AudioRecorderRahulR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,7 +532,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idev.AudioRecorderRahulR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idev.audio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -483,7 +551,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idev.AudioRecorderRahulRTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idev.audioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -503,7 +571,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idev.AudioRecorderRahulRTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idev.audioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -521,7 +589,7 @@
 				DEVELOPMENT_TEAM = W8VDFQDAT3;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idev.AudioRecorderRahulRUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idev.audioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -539,7 +607,7 @@
 				DEVELOPMENT_TEAM = W8VDFQDAT3;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idev.AudioRecorderRahulRUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idev.audioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

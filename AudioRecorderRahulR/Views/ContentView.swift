@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = RecordingViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            RecordingView(viewModel: viewModel)
+                .navigationTitle("Audio Recorder")
         }
-        .padding()
     }
 }
-
 #Preview {
     ContentView()
 }
