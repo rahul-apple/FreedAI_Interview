@@ -18,6 +18,9 @@
 		9580A6402C2EC77D006EB296 /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A63F2C2EC77D006EB296 /* RecordingViewModel.swift */; };
 		9580A6432C2EC924006EB296 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6422C2EC924006EB296 /* Constants.swift */; };
 		9580A6462C2ED47F006EB296 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6452C2ED47F006EB296 /* ContentView.swift */; };
+		95BC0E1F2C2FBC8200DA600E /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A63F2C2EC77D006EB296 /* RecordingViewModel.swift */; };
+		95BC0E202C2FBD7B00DA600E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580A6422C2EC924006EB296 /* Constants.swift */; };
+		95BC0E222C2FDDA600DA600E /* FileShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC0E212C2FDDA600DA600E /* FileShareModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,7 @@
 		9580A6422C2EC924006EB296 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9580A6442C2ECDD2006EB296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9580A6452C2ED47F006EB296 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		95BC0E212C2FDDA600DA600E /* FileShareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileShareModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				9580A6392C2EC6E0006EB296 /* AudioRecording.swift */,
+				95BC0E212C2FDDA600DA600E /* FileShareModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				9580A6432C2EC924006EB296 /* Constants.swift in Sources */,
 				9580A6402C2EC77D006EB296 /* RecordingViewModel.swift in Sources */,
 				9580A6462C2ED47F006EB296 /* ContentView.swift in Sources */,
+				95BC0E222C2FDDA600DA600E /* FileShareModel.swift in Sources */,
 				9580A63A2C2EC6E0006EB296 /* AudioRecording.swift in Sources */,
 				9580A6112C2EC3B5006EB296 /* RecordingView.swift in Sources */,
 				9580A60F2C2EC3B5006EB296 /* AudioRecorderRahulRApp.swift in Sources */,
@@ -332,7 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95BC0E1F2C2FBC8200DA600E /* RecordingViewModel.swift in Sources */,
 				9580A6202C2EC3B6006EB296 /* AudioRecorderRahulRTests.swift in Sources */,
+				95BC0E202C2FBD7B00DA600E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

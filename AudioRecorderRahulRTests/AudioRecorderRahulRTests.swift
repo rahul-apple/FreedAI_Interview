@@ -7,30 +7,98 @@
 
 import XCTest
 @testable import AudioRecorderRahulR
+import AVFoundation
 
-final class AudioRecorderRahulRTests: XCTestCase {
-
+final class RecordingViewModelTests: XCTestCase {
+    var viewModel: RecordingViewModel!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = RecordingViewModel()
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testStartRecording() throws {
+        let expectation = self.expectation(description: "Start Recording")
+        
+        viewModel.requestMicrophonePermission { granted in
+            XCTAssertTrue(granted)
+            
+            self.viewModel.startRecording()
+            XCTAssertEqual(self.viewModel.duration, 0)
+            
+            // Delay the assertion to give time for the asynchronous code to execute
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                XCTAssertTrue(self.viewModel.isRecording)
+                XCTAssertFalse(self.viewModel.isPaused)
+                expectation.fulfill()
+            }
         }
+        
+        waitForExpectations(timeout: 5, handler: nil)
     }
-
+    
+    func testPauseAndResumeRecording() throws {
+        let expectation = self.expectation(description: "Pause and Resume Recording")
+        viewModel.requestMicrophonePermission { granted in
+            XCTAssertTrue(granted)
+            
+            self.viewModel.startRecording()
+            
+            // Delay the pauseRecording call to ensure the recording has started
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.viewModel.pauseRecording()
+                
+                XCTAssertTrue(self.viewModel.isPaused)
+                XCTAssertTrue(self.viewModel.isRecording)
+                
+                // Delay the resumeRecording call to ensure the recording has paused
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.viewModel.resumeRecording()
+                    
+                    // Delay the assertion to give time for the asynchronous code to execute
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        XCTAssertFalse(self.viewModel.isPaused)
+                        XCTAssertTrue(self.viewModel.isRecording)
+                        expectation.fulfill()
+                    }
+                }
+            }
+        }
+        
+        waitForExpectations(timeout: 7, handler: nil)
+    }
+    
+    func testStopRecording() throws {
+        let expectation = self.expectation(description: "Stop Recording")
+        
+        viewModel.requestMicrophonePermission { granted in
+            XCTAssertTrue(granted)
+            
+            self.viewModel.startRecording()
+            
+            // Delay the stopRecording call to ensure the recording has started
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.viewModel.stopRecording()
+                
+                XCTAssertFalse(self.viewModel.isRecording)
+                XCTAssertFalse(self.viewModel.isPaused)
+                XCTAssertEqual(self.viewModel.duration, 0)
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    
+    func testLoadRecordedFiles() throws {
+        viewModel.loadRecordedFiles()
+        // Assuming there are no recorded files initially
+        XCTAssertFalse(viewModel.recordedFiles.isEmpty)
+    }
 }
+
+

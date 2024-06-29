@@ -7,11 +7,15 @@
 
 import SwiftUI
 import AVFoundation
+import QuickLook
+
 
 struct RecordingView: View {
     @ObservedObject var viewModel: RecordingViewModel
     @State private var timer: Timer?
-    @State private var permissionRequested = false
+    @State private var permissionRequested = false // to check the microphone permission requested or not
+    @State private var isShowingShareOption = false // ShareSheet is shown
+    
     
     var body: some View {
         VStack {
@@ -24,8 +28,6 @@ struct RecordingView: View {
                         self.viewModel.stopRecording()
                     } else {
                         self.requestMicrophonePermission()
-                        //                        self.viewModel.startRecording()
-                        //                        self.startTimer()
                     }
                 }) {
                     Text(viewModel.isRecording ? "Stop" : "Start")
@@ -38,10 +40,8 @@ struct RecordingView: View {
                     Button(action: {
                         if self.viewModel.isPaused {
                             self.viewModel.resumeRecording()
-                            self.startTimer()
                         } else {
                             self.viewModel.pauseRecording()
-                            self.stopTimer()
                         }
                     }) {
                         Text(self.viewModel.isPaused ? "Resume" : "Pause")
@@ -70,22 +70,22 @@ struct RecordingView: View {
                     Text(file.lastPathComponent)
                     Spacer()
                     Button(action: {
-                        self.viewModel.playAudio(file)
+                        self.viewModel.shareFile(file)
+                        self.isShowingShareOption = true
                     }) {
-                        Image(systemName: ((viewModel.audioPlayer?.isPlaying ?? false) && viewModel.currentlyPlayingFile == file) ? "pause.circle" : "play.circle")
-                            .resizable()
-                            .frame(width: 40, height: 40)
+                        Image(systemName: "arrowshape.turn.up.forward")
                             .foregroundColor(.blue)
                     }
                 }
-            }
-        }
-        .onDisappear {
-            // Stop timer when view disappears
-            self.stopTimer()
+            }.selectionDisabled()
         }
         .onAppear {
             self.requestMicrophonePermissionIfNeeded()
+        }
+        .sheet(isPresented: $isShowingShareOption) {
+            if let shareURL = self.viewModel.sharingAudioFile {
+                ShareSheet(activityItemURL: shareURL, excludedActivityTypes: nil)
+            }
         }
     }
     
@@ -95,50 +95,47 @@ struct RecordingView: View {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            // Update UI with current duration
-            // This ensures that the view reflects the accurate recording duration
-            // viewModel.duration is updated by RecordingViewModel
-        }
-    }
-    
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
     private func requestMicrophonePermission() {
-        AVAudioSession.sharedInstance().requestRecordPermission { granted in
-            if granted {
-                // Permission granted, start recording
-                self.viewModel.startRecording()
-                self.startTimer()
-            } else {
-                // Permission denied, handle accordingly (e.g., show alert)
-                // Optionally, inform the user or handle the denial
+        self.viewModel.requestMicrophonePermission { granted in
+            DispatchQueue.main.async {
+                if granted {
+                    // Permission granted, start recording
+                    self.viewModel.startRecording()
+                    self.viewModel.errorMessage = ""
+                } else {
+                    // Permission denied, handle accordingly (e.g., show alert)
+                    // Optionally, inform the user or handle the denial
+                    self.viewModel.errorMessage = "Permission denied"
+                }
             }
         }
     }
     
     private func requestMicrophonePermissionIfNeeded() {
         if !permissionRequested {
-            let permissionStatus = AVAudioSession.sharedInstance().recordPermission
-            switch permissionStatus {
-            case .granted:
-                break
-            case .denied:
-                break
-            case .undetermined:
-                viewModel.requestMicrophonePermission { granted in
-                    if granted {
-                        // Permission granted, you can start recording
-                    } else {
-                        // Permission denied, handle accordingly (e.g., show alert)
-                    }
+            viewModel.requestMicrophonePermission { _ in
+                DispatchQueue.main.async {
+                    permissionRequested = true
                 }
             }
-            permissionRequested = true
         }
+    }
+}
+
+
+struct ShareSheet: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIActivityViewController
+    let activityItemURL: URL
+    let excludedActivityTypes: [UIActivity.ActivityType]? // Optional
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let fileShareModel = try! FileShareModel(url: activityItemURL, title: activityItemURL.lastPathComponent)
+        let activityViewController = UIActivityViewController(activityItems: [fileShareModel], applicationActivities: nil)
+        activityViewController.excludedActivityTypes = excludedActivityTypes
+        return activityViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        // Update the view controller
     }
 }
